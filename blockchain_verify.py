@@ -3,7 +3,7 @@ import os
 
 class BlockchainSecurity:
     def __init__(self):
-        # Update these with your actual MD5 hashes
+       
         self.ledger = {
             "chest_xray": "4d5c94dbf3221ea59a07fa6a03ee9051",
             "neck_xray":  "7b3a21dc8902eb41f62c019a84bc21d2"
@@ -25,5 +25,5 @@ class BlockchainSecurity:
             return "FAILURE: Hash Mismatch"
 
 system = BlockchainSecurity()
-# Make sure this path is correct
+
 print(system.verify("chest_xray", "images/xray_chest.png"))

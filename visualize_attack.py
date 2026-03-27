@@ -4,7 +4,7 @@ from torchvision import models, transforms
 from PIL import Image
 import os
 
-# 1. Load Model
+
 model = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
 model.eval()
 
@@ -24,7 +24,7 @@ def get_prediction(img_path):
         _, idx = torch.max(out, 1)
     return idx.item()
 
-# 2. Main Execution
+
 images = ["images/xray_chest.png", "images/attacked_xray_neck.png"]
 titles = ["Original (Safe)", "Attacked (PGD)"]
 

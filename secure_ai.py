@@ -6,7 +6,7 @@ import os
 
 class MedicalSecuritySystem:
     def __init__(self):
-        # Load CNN Model
+       
         self.model = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
         self.model.eval()
         self.transform = transforms.Compose([
@@ -15,7 +15,7 @@ class MedicalSecuritySystem:
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
         ])
-        # Actual Hash we just generated
+   
         self.blockchain_ledger = {
             "images/xray_chest.png": "4d5c94dbf3221ea59a07fa6a03ee9051"
         }
@@ -31,7 +31,7 @@ class MedicalSecuritySystem:
         current_hash = self.get_hash(img_path)
         original_hash = self.blockchain_ledger.get(img_path)
 
-        # Integrity Check: Compare current image with blockchain record
+      
         if original_hash and current_hash != original_hash:
             return None, "ATTACK_DETECTED"
 

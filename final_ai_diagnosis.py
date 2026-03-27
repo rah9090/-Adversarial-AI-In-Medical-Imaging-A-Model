@@ -5,7 +5,7 @@ from PIL import Image
 import tensorflow as tf
 from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input, decode_predictions
 
-# 1. Load Pre-trained AI Model (ResNet50)
+
 print("Loading AI Model (ResNet50)...")
 model = ResNet50(weights='imagenet')
 
@@ -21,8 +21,7 @@ def run_actual_ai(image_path):
     x = np.array(img)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
-    
-    # AI Prediction
+ 
     preds = model.predict(x)
     return decode_predictions(preds, top=1)[0][0] # Returns (ID, Label, Confidence)
 
@@ -35,7 +34,7 @@ class MedicalSecureAI:
         print(f"\n--- Analyzing: {file_path} ---")
         current_hash = get_sha256(file_path)
         
-        # Blockchain Guard
+     
         if current_hash == self.original_hash:
             print("Status: SUCCESS (Integrity Verified)")
             print("Running Deep Learning Diagnosis...")
@@ -48,8 +47,8 @@ class MedicalSecureAI:
 if __name__ == "__main__":
     system = MedicalSecureAI()
     
-    # Test Original
+
     system.process("images/xray_chest.png")
     
-    # Test Attacked
+
     system.process("images/attacked_xray_chest.png")

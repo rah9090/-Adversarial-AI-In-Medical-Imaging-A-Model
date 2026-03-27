@@ -3,7 +3,7 @@ import os
 
 class MedicalSecuritySystem:
     def __init__(self):
-        # Updated with your ACTUAL MD5 hashes from the terminal
+       
         self.blockchain_ledger = {
             "xray_chest.png": "4d5c94dbf3221ea59a07fa6a03ee9051",
             "xray_neck.png":  "eb3e29460f8704e21e1391a5ed66" 
@@ -17,7 +17,7 @@ class MedicalSecuritySystem:
 
     def verify_integrity(self, image_id, current_path):
         current_hash = self.get_file_hash(current_path)
-        # We use startswith because your neck hash in the terminal might be longer
+   
         original_hash = self.blockchain_ledger.get(image_id)
 
         if current_hash and original_hash and current_hash.startswith(original_hash):
